@@ -2,9 +2,14 @@ import streamlit as st
 from tensorflow.keras.models import load_model
 from PIL import Image
 import numpy as np
+import os
+import requests
 
-# Load the trained model
-model = load_model('cotton_disease_model.h5')
+model_path = 'models/cotton_disease_model.h5'
+if not os.path.exists(model_path):
+    url = 'https://drive.google.com/file/d/15kKlG9rJSj8oxM3dFeCrEIjRagjyf-MI/view?usp=drive_link'
+    r = requests.get(url, allow_redirects=True)
+    open(model_path, 'wb').write(r.content)
 
 # Define a function to preprocess the image
 def preprocess_image(image):
