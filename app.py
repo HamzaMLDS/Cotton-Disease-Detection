@@ -26,7 +26,7 @@ if not os.path.isfile(MODEL_PATH):
     st.write('Model downloaded.')
 
 # Load the trained model
-model = load_model("MODEL_PATH")
+model = load_model(MODEL_PATH)
 
 # Define a function to preprocess the image
 def preprocess_image(image):
