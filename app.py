@@ -5,9 +5,7 @@ import numpy as np
 import os
 
 # Define the URL for the model file on Google Drive
-MODEL_URL = 'https://drive.google.com/uc?id=15kKlG9rJSj8oxM3dFeCrEIjRagjyf-MI'
-
-# Define the local path to save the downloaded model
+model_url = 'https://drive.google.com/uc?export=download&id=15kKlG9rJSj8oxM3dFeCrEIjRagjyf-MI'
 MODEL_PATH = 'cotton_disease_model.h5'
 
 # Function to download the model file from Google Drive
