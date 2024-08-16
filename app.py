@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-import tensorflow
 from tensorflow.keras.models import load_model # type: ignore
 from PIL import Image
 import numpy as np
