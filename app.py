@@ -5,8 +5,14 @@ from PIL import Image
 import numpy as np
 import os
 
+# Set the page configuration with a custom icon
+st.set_page_config(
+    page_title="Cotton Disease Detection",
+    page_icon="🌿",  # You can replace this emoji with a link to a cotton or leaf icon
+)
+
 # Define the URL for the model file on GitHub
-MODEL_URL = 'https://github.com/HamzaMLDS/Cotton-Disease-Detection/blob/4239ee7e5bd4165e9d607c7a5309bb628cebff60/cotton_disease_model.h5'
+MODEL_URL = 'https://github.com/HamzaMLDS/Cotton-Disease-Detection/blob/4239ee7e5bd4165e9d607c7a5309bb628cebff60/cotton_disease_model.h5?raw=true'
 
 # Define the local path to save the downloaded model
 MODEL_PATH = 'cotton_disease_model.h5'
@@ -22,9 +28,7 @@ def download_model(url, local_path):
 
 # Download the model if it does not exist or is smaller than expected
 if not os.path.isfile(MODEL_PATH) or os.path.getsize(MODEL_PATH) < 100:
-    st.write('Downloading model...')
     download_model(MODEL_URL, MODEL_PATH)
-    st.write('Model downloaded.')
 
 # Load the trained model
 try:
@@ -46,9 +50,29 @@ def interpret_prediction(prediction):
     predicted_class = np.argmax(prediction)
     return class_names[predicted_class]
 
-# Define the Streamlit app
-st.title('Cotton Disease Detection')
-st.write('Upload an image of a cotton leaf to detect the disease.')
+# Inject custom CSS for background
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-image: url('https://www.transparenttextures.com/patterns/green-gobbler.png');
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Streamlit App
+st.title('🌿 Welcome to Cotton Disease Detection 🌿')
+st.write("""
+This app helps in identifying common diseases in cotton leaves. 
+Simply upload an image of a cotton leaf, and the model will predict whether the leaf is affected by one of the following diseases:
+- **Bacterial Blight**
+- **Curl Virus**
+- **Fusarium Virus**
+- Or if the leaf is **Healthy**
+""")
 
 uploaded_file = st.file_uploader('Choose an image...', type='jpg')
 
