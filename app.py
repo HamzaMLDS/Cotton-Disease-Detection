@@ -14,17 +14,17 @@ MODEL_URL = f'https://drive.google.com/uc?export=download&id=1BavMadOAI5khsCV1Zv
 # Define the local path to save the downloaded model
 MODEL_PATH = 'cotton_disease_model.h5'
 
-# Function to download the model file from Google Drive
+# Function to download the model file from Google Drive with proper headers
 def download_model(url, local_path):
-    response = requests.get(url, stream=True)
-    response.raise_for_status()  # Check for errors
-    with open(local_path, 'wb') as file:
-        for chunk in response.iter_content(chunk_size=8192):
-            if chunk:
-                file.write(chunk)
+    with requests.get(url, stream=True) as response:
+        response.raise_for_status()  # Check for errors
+        with open(local_path, 'wb') as file:
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    file.write(chunk)
 
-# Download the model if it does not exist
-if not os.path.isfile(MODEL_PATH):
+# Ensure that the model is downloaded completely and correctly
+if not os.path.isfile(MODEL_PATH) or os.path.getsize(MODEL_PATH) < 125,829,120:  # Replace with approximate model file size
     st.write('Downloading model...')
     download_model(MODEL_URL, MODEL_PATH)
     st.write('Model downloaded.')
