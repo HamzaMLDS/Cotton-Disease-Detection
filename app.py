@@ -6,13 +6,12 @@ import numpy as np
 import os
 
 # Google Drive file ID for your model
-FILE_ID = '1BavMadOAI5khsCV1ZvweoQjp5TinqwKK'  # Replace with your file ID
-
+FILE_ID = '15kKlG9rJSj8oxM3dFeCrEIjRagjyf-MI'  # Replace with your file ID
 # Direct download link for the model from Google Drive
-MODEL_URL = f'https://drive.google.com/uc?export=download&id=1BavMadOAI5khsCV1ZvweoQjp5TinqwKK'
+MODEL_URL = f'https://drive.google.com/uc?export=download&id=15kKlG9rJSj8oxM3dFeCrEIjRagjyf-MI'
 
 # Define the local path to save the downloaded model
-MODEL_PATH = 'cotton_disease_model.keras'
+MODEL_PATH = 'cotton_disease_model.h5'
 
 # Function to download the model file from Google Drive with proper headers
 def download_model(url, local_path):
