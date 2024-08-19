@@ -5,11 +5,14 @@ from PIL import Image
 import numpy as np
 import os
 
-# Define the URL for the model file on Google Drive
-MODEL_URL = 'https://drive.google.com/uc?id=1BavMadOAI5khsCV1ZvweoQjp5TinqwKK'
+# Google Drive file ID for your model
+FILE_ID = '1BavMadOAI5khsCV1ZvweoQjp5TinqwKK'  # Replace with your file ID
+
+# Direct download link for the model from Google Drive
+MODEL_URL = f'https://drive.google.com/uc?export=download&id=1BavMadOAI5khsCV1ZvweoQjp5TinqwKK'
 
 # Define the local path to save the downloaded model
-MODEL_PATH = 'cotton_disease_model.keras'
+MODEL_PATH = 'cotton_disease_model.h5'
 
 # Function to download the model file from Google Drive
 def download_model(url, local_path):
@@ -27,7 +30,11 @@ if not os.path.isfile(MODEL_PATH):
     st.write('Model downloaded.')
 
 # Load the trained model
-model = tf.keras.models.load_model(MODEL_PATH)
+try:
+    model = tf.keras.models.load_model(MODEL_PATH)
+    st.write("Model loaded successfully.")
+except Exception as e:
+    st.error(f"Failed to load model: {e}")
 
 # Define a function to preprocess the image
 def preprocess_image(image):
