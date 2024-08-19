@@ -20,15 +20,25 @@ def download_model(url, local_path):
             if chunk:
                 file.write(chunk)
 
-# Download the model if it does not exist
+# Function to get the size of the model file in MB
+def get_model_size(file_path):
+    size_bytes = os.path.getsize(file_path)
+    size_mb = size_bytes / (1024 * 1024)  # Convert bytes to MB
+    return size_mb
+
+# Download the model if it does not exist or is too small
 if not os.path.isfile(MODEL_PATH) or os.path.getsize(MODEL_PATH) < 100:
     st.write('Downloading model...')
     download_model(MODEL_URL, MODEL_PATH)
     st.write('Model downloaded.')
+else:
+    model_size_mb = get_model_size(MODEL_PATH)
+    st.write(f'Model size: {model_size_mb:.2f} MB')
 
 # Load the trained model
 try:
     model = tf.keras.models.load_model(MODEL_PATH)
+    st.write('Model loaded successfully.')
 except Exception as e:
     st.error(f"Failed to load model: {e}")
 
