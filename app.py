@@ -6,7 +6,7 @@ import numpy as np
 import os
 
 # Define the URL for the model file on Dropbox
-MODEL_URL = 'https://www.dropbox.com/scl/fi/02pwzjlm024cvig1wezzj/cotton_disease_model.keras?rlkey=rzcstdhtjujk24m3vhvxyzr74&st=ocuzyxf6&dl=1'
+MODEL_URL = 'https://www.dropbox.com/scl/fi/qshd55ob06w9741peyvm2/cotton_disease_model.h5?rlkey=3cnc2owqwpd9zhyl45pc5uc12&st=v0yi0n0u&dl=1'
 
 # Define the local path to save the downloaded model
 MODEL_PATH = 'cotton_disease_model.h5'
