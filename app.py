@@ -8,7 +8,7 @@ import os
 # Set the page configuration with a custom icon
 st.set_page_config(
     page_title="Cotton Disease Detection",
-    page_icon="🌿",  # You can replace this emoji with a link to a cotton or leaf icon
+    page_icon="🌿",  # Custom leaf icon
 )
 
 # Define the URL for the model file on GitHub
@@ -50,14 +50,18 @@ def interpret_prediction(prediction):
     predicted_class = np.argmax(prediction)
     return class_names[predicted_class]
 
-# Inject custom CSS for a white background with a leafy pattern
+# Inject custom CSS for a black background with small leaf icons
 st.markdown(
     """
     <style>
     .stApp {
-        background-color: white;
+        background-color: black;
         background-image: url('https://www.transparenttextures.com/patterns/leaf.png'); 
         background-size: 200px 200px;
+        color: white;
+    }
+    header, .stSidebar {
+        background-color: black;
     }
     h1, h2, h3, h4, h5, h6 {
         color: #00cc44;
@@ -67,7 +71,7 @@ st.markdown(
         color: white;
     }
     .stTextInput > div > div > input {
-        background-color: white;
+        background-color: black;
         color: #00cc44;
     }
     </style>
