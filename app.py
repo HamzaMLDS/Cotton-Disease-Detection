@@ -5,13 +5,13 @@ from PIL import Image
 import numpy as np
 import os
 
-# Define the URL for the model file on Dropbox
-MODEL_URL = 'https://www.dropbox.com/scl/fi/qshd55ob06w9741peyvm2/cotton_disease_model.h5?dl=1'
+# Define the URL for the model file on GitHub
+MODEL_URL = 'https://github.com/HamzaMLDS/Cotton-Disease-Detection/blob/4239ee7e5bd4165e9d607c7a5309bb628cebff60/cotton_disease_model.h5'
 
 # Define the local path to save the downloaded model
 MODEL_PATH = 'cotton_disease_model.h5'
 
-# Function to download the model file from Dropbox
+# Function to download the model file from GitHub
 def download_model(url, local_path):
     response = requests.get(url, stream=True)
     response.raise_for_status()  # Check for errors
@@ -20,25 +20,15 @@ def download_model(url, local_path):
             if chunk:
                 file.write(chunk)
 
-# Function to get the size of the model file in MB
-def get_model_size(file_path):
-    size_bytes = os.path.getsize(file_path)
-    size_mb = size_bytes / (1024 * 1024)  # Convert bytes to MB
-    return size_mb
-
-# Download the model if it does not exist or is too small
+# Download the model if it does not exist or is smaller than expected
 if not os.path.isfile(MODEL_PATH) or os.path.getsize(MODEL_PATH) < 100:
     st.write('Downloading model...')
     download_model(MODEL_URL, MODEL_PATH)
     st.write('Model downloaded.')
-else:
-    model_size_mb = get_model_size(MODEL_PATH)
-    st.write(f'Model size: {model_size_mb:.2f} MB')
 
 # Load the trained model
 try:
     model = tf.keras.models.load_model(MODEL_PATH)
-    st.write('Model loaded successfully.')
 except Exception as e:
     st.error(f"Failed to load model: {e}")
 
