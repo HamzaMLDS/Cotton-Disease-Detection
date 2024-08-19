@@ -46,17 +46,28 @@ def preprocess_image(image):
 # Define a function to interpret the model's prediction
 def interpret_prediction(prediction):
     # Mapping the predicted class to disease names
-    class_names = ['Affected', 'Affected', 'Affected', 'Affected']
+    class_names = ['Bacterial Blight', 'Curl Virus', 'Fusarium Virus', 'Healthy']
     predicted_class = np.argmax(prediction)
     return class_names[predicted_class]
 
-# Inject custom CSS for background
+# Inject custom CSS for black and green theme
 st.markdown(
     """
     <style>
     .stApp {
-        background-image: url('https://www.transparenttextures.com/patterns/green-gobbler.png');
-        background-size: cover;
+        background-color: #0d0d0d;
+        color: #00cc44;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        color: #00cc44;
+    }
+    .stButton button {
+        background-color: #00cc44;
+        color: black;
+    }
+    .stTextInput > div > div > input {
+        background-color: #0d0d0d;
+        color: #00cc44;
     }
     </style>
     """,
@@ -67,7 +78,7 @@ st.markdown(
 st.title('🌿 Welcome to Cotton Disease Detection 🌿')
 st.write("""
 This app helps in identifying common diseases in cotton leaves. 
-Simply upload an image of a cotton leaf, and the model will predict whether the leaf is affected or not. It can detect the following diseases:
+Simply upload an image of a cotton leaf, and the model will predict whether the leaf is affected by one of the following diseases:
 - **Bacterial Blight**
 - **Curl Virus**
 - **Fusarium Virus**
