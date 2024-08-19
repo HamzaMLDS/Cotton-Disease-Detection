@@ -60,8 +60,11 @@ st.markdown(
         background-size: 200px 200px;
         color: white;
     }
-    header, .stSidebar {
-        background-color: black;
+    header {
+        background-color: black !important;
+    }
+    .css-1q1n0ol {
+        background-color: black !important;
     }
     h1, h2, h3, h4, h5, h6 {
         color: #00cc44;
