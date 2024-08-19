@@ -130,7 +130,7 @@ st.markdown(
     """
     <div class="profile-links">
     <a href="mailto:mhrwork2001@gmail.com" target="_blank">📧 Email</a>  
-    <a href="https:www.linkedin.com/in/hamza-rehman-4aa1a323a" target="_blank">🔗 LinkedIn</a>  
+    <a href="https://www.linkedin.com/in/hamza-rehman-4aa1a323a/" target="_blank">🔗 LinkedIn</a>  
     <a href="https://github.com/HamzaMLDS" target="_blank">💻 GitHub</a>
     </div>
     """,
