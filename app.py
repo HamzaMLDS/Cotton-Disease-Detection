@@ -9,7 +9,7 @@ import os
 MODEL_URL = 'https://drive.google.com/uc?id=1BavMadOAI5khsCV1ZvweoQjp5TinqwKK'
 
 # Define the local path to save the downloaded model
-MODEL_PATH = 'cotton_disease_model.h5'
+MODEL_PATH = 'cotton_disease_model.keras'
 
 # Function to download the model file from Google Drive
 def download_model(url, local_path):
