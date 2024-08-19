@@ -46,7 +46,7 @@ def preprocess_image(image):
 # Define a function to interpret the model's prediction
 def interpret_prediction(prediction):
     # Mapping the predicted class to disease names
-    class_names = ['Bacterial Blight', 'Curl Virus', 'Fusarium Virus', 'Healthy']
+    class_names = ['Affected🌿😢', 'Affected🌿😢', 'Affected🌿😢', 'Healthy🌿😄']
     predicted_class = np.argmax(prediction)
     return class_names[predicted_class]
 
@@ -56,8 +56,6 @@ st.markdown(
     <style>
     .stApp {
         background-color: black;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='0' y='20' font-size='30'%3E🌿%3C/text%3E%3C/svg%3E");
-        background-repeat: repeat;
         color: white;
     }
     header {
