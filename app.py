@@ -9,7 +9,7 @@ import os
 MODEL_URL = 'https://www.dropbox.com/scl/fi/02pwzjlm024cvig1wezzj/cotton_disease_model.keras?rlkey=rzcstdhtjujk24m3vhvxyzr74&st=ocuzyxf6&dl=1'
 
 # Define the local path to save the downloaded model
-MODEL_PATH = 'cotton_disease_model.keras'
+MODEL_PATH = 'cotton_disease_model.h5'
 
 # Function to download the model file from Dropbox
 def download_model(url, local_path):
