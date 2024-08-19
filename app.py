@@ -46,7 +46,7 @@ def preprocess_image(image):
 # Define a function to interpret the model's prediction
 def interpret_prediction(prediction):
     # Mapping the predicted class to disease names
-    class_names = ['Affected🌿😢', 'Affected🌿😢', 'Affected🌿😢', 'Healthy🌿😄']
+    class_names = ['Bacterial Blight', 'Curl Virus', 'Fusarium Virus', 'Healthy']
     predicted_class = np.argmax(prediction)
     return class_names[predicted_class]
 
@@ -56,6 +56,8 @@ st.markdown(
     <style>
     .stApp {
         background-color: black;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='0' y='20' font-size='30'%3E🌿%3C/text%3E%3C/svg%3E");
+        background-repeat: repeat;
         color: white;
     }
     header {
@@ -104,3 +106,21 @@ if uploaded_file is not None:
     # Interpret and display the prediction
     result = interpret_prediction(prediction)
     st.write('Prediction:', result)
+
+# Personal introduction and contact information
+st.markdown("---")
+st.write("## About Me")
+st.write("""
+Hello! I'm **Hamza Rehman**, a student of **BS Computer Science (BSCS)**. I'm currently learning machine learning and working on exciting projects like this one. My goal is to gain deep insights into AI and apply them to solve real-world problems.
+""")
+st.write("### Connect with Me")
+
+# Display clickable contact information with emojis
+st.markdown(
+    """
+    <a href="mailto:mhrwork2001@gmail.com" target="_blank">📧 Email</a>  
+    <a href="https:www.linkedin.com/in/hamza-rehman-4aa1a323a" target="_blank">🔗 LinkedIn</a>  
+    <a href="https://github.com/HamzaMLDS" target="_blank">💻 GitHub</a>
+    """,
+    unsafe_allow_html=True
+)
