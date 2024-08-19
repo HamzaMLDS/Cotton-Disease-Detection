@@ -24,7 +24,7 @@ def download_model(url, local_path):
                     file.write(chunk)
 
 # Ensure that the model is downloaded completely and correctly
-if not os.path.isfile(MODEL_PATH) or os.path.getsize(MODEL_PATH) < 125,829,120:  # Replace with approximate model file size
+if not os.path.isfile(MODEL_PATH) or os.path.getsize(MODEL_PATH) < 125829120:  # Replace with approximate model file size
     st.write('Downloading model...')
     download_model(MODEL_URL, MODEL_PATH)
     st.write('Model downloaded.')
