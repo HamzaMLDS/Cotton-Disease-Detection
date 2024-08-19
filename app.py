@@ -50,23 +50,24 @@ def interpret_prediction(prediction):
     predicted_class = np.argmax(prediction)
     return class_names[predicted_class]
 
-# Inject custom CSS for black and green theme
+# Inject custom CSS for a white background with a leafy pattern
 st.markdown(
     """
     <style>
     .stApp {
-        background-color: #0d0d0d;
-        color: #00cc44;
+        background-color: white;
+        background-image: url('https://www.transparenttextures.com/patterns/leaf.png'); 
+        background-size: 200px 200px;
     }
     h1, h2, h3, h4, h5, h6 {
         color: #00cc44;
     }
     .stButton button {
         background-color: #00cc44;
-        color: black;
+        color: white;
     }
     .stTextInput > div > div > input {
-        background-color: #0d0d0d;
+        background-color: white;
         color: #00cc44;
     }
     </style>
