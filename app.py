@@ -5,38 +5,30 @@ from PIL import Image
 import numpy as np
 import os
 
-# Google Drive file ID for your model
-FILE_ID = '15kKlG9rJSj8oxM3dFeCrEIjRagjyf-MI'  # Replace with your file ID
-# Direct download link for the model from Google Drive
-MODEL_URL = f'https://drive.google.com/uc?export=download&id=15kKlG9rJSj8oxM3dFeCrEIjRagjyf-MI'
+# Define the URL for the model file on Dropbox
+MODEL_URL = 'https://www.dropbox.com/scl/fi/02pwzjlm024cvig1wezzj/cotton_disease_model.keras?rlkey=rzcstdhtjujk24m3vhvxyzr74&st=ocuzyxf6&dl=1'
 
 # Define the local path to save the downloaded model
-MODEL_PATH = 'cotton_disease_model.h5'
+MODEL_PATH = 'cotton_disease_model.keras'
 
-# Function to download the model file from Google Drive with proper headers
+# Function to download the model file from Dropbox
 def download_model(url, local_path):
-    with requests.get(url, stream=True) as response:
-        response.raise_for_status()  # Check for errors
-        with open(local_path, 'wb') as file:
-            for chunk in response.iter_content(chunk_size=8192):
-                if chunk:
-                    file.write(chunk)
+    response = requests.get(url, stream=True)
+    response.raise_for_status()  # Check for errors
+    with open(local_path, 'wb') as file:
+        for chunk in response.iter_content(chunk_size=8192):
+            if chunk:
+                file.write(chunk)
 
-# Ensure that the model is downloaded completely and correctly
-if not os.path.isfile(MODEL_PATH) or os.path.getsize(MODEL_PATH) < 125829120:  # Replace with approximate model file size
+# Download the model if it does not exist
+if not os.path.isfile(MODEL_PATH) or os.path.getsize(MODEL_PATH) < 100:
     st.write('Downloading model...')
     download_model(MODEL_URL, MODEL_PATH)
     st.write('Model downloaded.')
 
-# Display the size of the downloaded model
-if os.path.isfile(MODEL_PATH):
-    model_size = os.path.getsize(MODEL_PATH) / (1024 * 1024)  # Convert bytes to megabytes
-    st.write(f"Model size: {model_size:.2f} MB")
-
 # Load the trained model
 try:
     model = tf.keras.models.load_model(MODEL_PATH)
-    st.write("Model loaded successfully.")
 except Exception as e:
     st.error(f"Failed to load model: {e}")
 
