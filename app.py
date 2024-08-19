@@ -29,6 +29,11 @@ if not os.path.isfile(MODEL_PATH) or os.path.getsize(MODEL_PATH) < 125829120:  #
     download_model(MODEL_URL, MODEL_PATH)
     st.write('Model downloaded.')
 
+# Display the size of the downloaded model
+if os.path.isfile(MODEL_PATH):
+    model_size = os.path.getsize(MODEL_PATH) / (1024 * 1024)  # Convert bytes to megabytes
+    st.write(f"Model size: {model_size:.2f} MB")
+
 # Load the trained model
 try:
     model = tf.keras.models.load_model(MODEL_PATH)
