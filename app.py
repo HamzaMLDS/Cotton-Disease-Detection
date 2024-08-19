@@ -50,14 +50,14 @@ def interpret_prediction(prediction):
     predicted_class = np.argmax(prediction)
     return class_names[predicted_class]
 
-# Inject custom CSS for a black background with small leaf icons
+# Inject custom CSS for a black background with repeating leaf emoji
 st.markdown(
     """
     <style>
     .stApp {
         background-color: black;
-        background-image: url('https://www.transparenttextures.com/patterns/leaf.png'); 
-        background-size: 200px 200px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='0' y='20' font-size='30'%3E🌿%3C/text%3E%3C/svg%3E");
+        background-repeat: repeat;
         color: white;
     }
     header {
