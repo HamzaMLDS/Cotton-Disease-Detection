@@ -50,14 +50,12 @@ def interpret_prediction(prediction):
     predicted_class = np.argmax(prediction)
     return class_names[predicted_class]
 
-# Inject custom CSS for a black background with repeating leaf emoji
+# Inject custom CSS to remove the background and style emojis
 st.markdown(
     """
     <style>
     .stApp {
         background-color: black;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='0' y='20' font-size='30'%3E🌿%3C/text%3E%3C/svg%3E");
-        background-repeat: repeat;
         color: white;
     }
     header {
@@ -76,6 +74,18 @@ st.markdown(
     .stTextInput > div > div > input {
         background-color: black;
         color: #00cc44;
+    }
+    /* Style the profile links and emojis */
+    .profile-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+    .profile-links a {
+        font-size: 30px;
+        text-decoration: none;
     }
     </style>
     """,
@@ -115,12 +125,14 @@ Hello! I'm **Hamza Rehman**, a student of **BS Computer Science (BSCS)**. I'm cu
 """)
 st.write("### Connect with Me")
 
-# Display clickable contact information with emojis
+# Display clickable contact information with larger emojis
 st.markdown(
     """
+    <div class="profile-links">
     <a href="mailto:mhrwork2001@gmail.com" target="_blank">📧 Email</a>  
     <a href="https:www.linkedin.com/in/hamza-rehman-4aa1a323a" target="_blank">🔗 LinkedIn</a>  
     <a href="https://github.com/HamzaMLDS" target="_blank">💻 GitHub</a>
+    </div>
     """,
     unsafe_allow_html=True
 )
