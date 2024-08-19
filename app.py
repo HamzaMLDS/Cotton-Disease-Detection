@@ -12,7 +12,7 @@ FILE_ID = '1BavMadOAI5khsCV1ZvweoQjp5TinqwKK'  # Replace with your file ID
 MODEL_URL = f'https://drive.google.com/uc?export=download&id=1BavMadOAI5khsCV1ZvweoQjp5TinqwKK'
 
 # Define the local path to save the downloaded model
-MODEL_PATH = 'cotton_disease_model.h5'
+MODEL_PATH = 'cotton_disease_model.keras'
 
 # Function to download the model file from Google Drive with proper headers
 def download_model(url, local_path):
