@@ -46,7 +46,7 @@ def preprocess_image(image):
 # Define a function to interpret the model's prediction
 def interpret_prediction(prediction):
     # Mapping the predicted class to disease names
-    class_names = ['Bacterial Blight🌿😢', 'Fusarium Wilt🌿😢', 'Curl Virus🌿😢', 'Healthy🌿😄']
+    class_names = ['Bacterial Blight🌿😢', 'Curl Virus🌿😢', 'Fusarium Wilt🌿😢', 'Healthy🌿😄']
     predicted_class = np.argmax(prediction)
     return class_names[predicted_class]
 
